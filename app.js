@@ -3,22 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header(
-    'Access-Control-Allow-Methods',
-    'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-  );
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Authorization',
-  );
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
-  }
-  next();
-});
-
 const PORT = process.env.PORT || 3000;
 app.use(cors({ origin: '*' }));
 app.options('*', cors({ origin: '*' }));
