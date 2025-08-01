@@ -5,7 +5,7 @@ const app = express();
 const { dbConnect } = require('./config/mongo');
 
 const PORT = process.env.PORT || 3000;
-app.use(cors({ origin: '*' }));
+app.use(cors());
 app.options('*', cors({ origin: '*' }));
 app.use(express.json());
 app.use(express.static('public'));
