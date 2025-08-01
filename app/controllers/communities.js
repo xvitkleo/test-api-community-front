@@ -25,7 +25,7 @@ const getItems = async (req, res) => {
   try {
     
     if (!req.query.page || !req.query.limit) {
-      res.send({
+      return res.send({
         data: communities,
         pagination: {
             total: communities.length,
@@ -39,7 +39,7 @@ const getItems = async (req, res) => {
 
     const results = communities.slice(startIndex, endIndex);
 
-    res.send({
+    return res.send({
       data: results,
       pagination: {
         total: communities.length,
