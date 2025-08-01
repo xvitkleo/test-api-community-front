@@ -27,7 +27,9 @@ const getItems = async (req, res) => {
     if (!req.query.page || !req.query.limit) {
       res.send({
         data: communities,
-        total: communities.length,
+        pagination: {
+            total: communities.length,
+        }
       });
     }
     const page = Math.max(parseInt(req.query.page) || 1, 1);
@@ -39,9 +41,11 @@ const getItems = async (req, res) => {
 
     res.send({
       data: results,
-      total: communities.length,
-      page,
-      limit,
+      pagination: {
+        total: communities.length,
+        page: page,
+        limit: limit,
+      },
     });
   } catch (e) {
     httpError(res, e);
