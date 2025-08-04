@@ -45,7 +45,7 @@ let members = [
     assignedMentee: '',
     technology: 'Python',
     technologyValid: false,
-    status: 'inActivo',
+    status: 'Inactivo',
     offShore: false,
     responsible: 'Ramirez Soto, Juan Carlos',
     project: 'TDPWEB',
@@ -331,7 +331,7 @@ const addMultipleItems = (req, res) => {
 
 const updateMultipleItems = (req, res) => {
   try {
-    const updatesArray = req.body; // [{ id: 1, status: 'InActivo' }, { id: 2, name: 'Nuevo nombre' }]
+    const updatesArray = req.body; // [{ id: 1, status: 'Inactivo' }, { id: 2, name: 'Nuevo nombre' }]
     if (!Array.isArray(updatesArray)) {
       return res
         .status(400)
