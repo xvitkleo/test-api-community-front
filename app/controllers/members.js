@@ -170,7 +170,7 @@ let members = [
 const getItems = async (req, res) => {
   try {
     if (!req.query.page || !req.query.limit) {
-      res.send({
+      return res.send({
         data: members,
         total: members.length,
       });
@@ -183,7 +183,7 @@ const getItems = async (req, res) => {
 
     const results = members.slice(startIndex, endIndex);
 
-    res.send({
+    return res.send({
       data: results,
       total: members.length,
       page,
@@ -205,7 +205,7 @@ const getByCommunity = async (req, res) => {
     const filtered = members.filter((m) => m.communityId === communityId);
 
     if (!req.query.page || !req.query.limit) {
-      res.send({
+      return res.send({
         data: filtered,
         total: filtered.length,
       });
@@ -219,7 +219,7 @@ const getByCommunity = async (req, res) => {
 
     const results = filtered.slice(startIndex, endIndex);
 
-    res.send({
+    return res.send({
       data: results,
       total: filtered.length,
       page,
